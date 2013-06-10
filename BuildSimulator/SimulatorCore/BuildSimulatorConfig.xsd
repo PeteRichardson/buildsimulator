@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="BuildSimulatorConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="1" maxOccurs="1">
+					<xs:element name="BuildManager" type="BuildManager" />
+				</xs:choice>
+				<xs:element name="MachinePool" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:choice minOccurs="1" maxOccurs="unbounded">
+							<xs:element name="BuildMachine" type="BuildMachine" />
+							<xs:element name="AssignedBuildMachine" type="AssignedBuildMachine" />
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice minOccurs="1" maxOccurs="1">
+					<xs:element name="XmlChangeSource" type="XmlChangeSource" />
+					<xs:element name="RandomChangeSource" type="RandomChangeSource" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="BuildManager">
+		<xs:sequence />
+	</xs:complexType>
+	
+	<xs:complexType name="BuildMachine">
+		<xs:sequence />
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="AssignedBuildMachine">
+		<xs:complexContent>
+			<xs:extension base="BuildMachine">
+				<xs:attribute name="assignedFlavor" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="XmlChangeSource">
+		<xs:sequence />
+		<xs:attribute name="filename" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="RandomChangeSource">
+		<xs:sequence />
+		<xs:attribute name="minIncrementalBuildTime" type="xs:duration" use="required" />
+		<xs:attribute name="maxIncrementalBuildTime" type="xs:duration" use="required" />
+		<xs:attribute name="minCleanBuildTime" type="xs:duration" use="required" />
+		<xs:attribute name="maxCleanBuildTime" type="xs:duration" use="required" />
+		<xs:attribute name="percentBroken" type="xs:integer" use="required" />
+		<xs:attribute name="percentClean" type="xs:integer" use="required" />
+		<xs:attribute name="meanTimeBetweenChanges" type="xs:duration" use="required" />
+	</xs:complexType>
+</xs:schema>

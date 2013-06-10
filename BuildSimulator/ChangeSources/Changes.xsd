@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="changes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="change" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="target" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="target_name" type="xs:string" />
+									<xs:attribute name="target_time_requested" type="xs:string" />
+									<xs:attribute name="target_clean" type="xs:string" />
+									<xs:attribute name="target_successful" type="xs:string" />
+									<xs:attribute name="target_time_started" type="xs:string" />
+									<xs:attribute name="target_time_finished" type="xs:string" />
+									<xs:attribute name="target_build_time" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="change_date" type="xs:string" />
+						<xs:attribute name="change_id" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="project" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

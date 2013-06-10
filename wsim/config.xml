@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<BuildSimulatorConfiguration>
+	<BuildManager />
+	<MachinePool>
+		<BuildMachine name="BM-WEASEL" />
+		<AssignedBuildMachine name="BM-PETE" assignedFlavor="debug"/>
+		<AssignedBuildMachine name= "BM-JARED" assignedFlavor="retail"/>
+		<BuildMachine name="BM-AARDVARK"/>
+	</MachinePool>
+	<RandomChangeSource 
+		minIncrementalBuildTime="PT7M"
+		maxIncrementalBuildTime="PT14M"
+		minCleanBuildTime="PT40M"
+		maxCleanBuildTime="PT2H"
+		percentBroken="8"
+		percentClean="10"
+		meanTimeBetweenChanges="PT5M"		
+	 />
+</BuildSimulatorConfiguration>
